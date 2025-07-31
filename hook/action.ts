@@ -17,8 +17,10 @@ const scheduleSchema = z.object({
 });
 
 // Helper to get user from token
+// Helper to get user from token
 async function getUserIdFromToken() {
-    const authorization = headers().get('Authorization');
+    const headersList = await headers();
+    const authorization = headersList.get('Authorization');
     if (!authorization) return null;
     const idToken = authorization.split('Bearer ')[1];
     if (!idToken) return null;

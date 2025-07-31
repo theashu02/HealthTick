@@ -1,0 +1,39 @@
+{
+    "indexes": [
+      {
+        "collectionGroup": "meetings",
+        "queryScope": "COLLECTION",
+        "fields": [
+          { "fieldPath": "userId", "order": "ASCENDING" },
+          { "fieldPath": "startTime", "order": "ASCENDING" }
+        ]
+      },
+      {
+        "collectionGroup": "meetings", 
+        "queryScope": "COLLECTION",
+        "fields": [
+          { "fieldPath": "userId", "order": "ASCENDING" },
+          { "fieldPath": "startTime", "order": "ASCENDING" },
+          { "fieldPath": "endTime", "order": "ASCENDING" }
+        ]
+      },
+      {
+        "collectionGroup": "meetings",
+        "queryScope": "COLLECTION", 
+        "fields": [
+          { "fieldPath": "userId", "order": "ASCENDING" },
+          { "fieldPath": "duration", "order": "ASCENDING" },
+          { "fieldPath": "startTime", "order": "ASCENDING" }
+        ]
+      },
+      {
+        "collectionGroup": "contacts",
+        "queryScope": "COLLECTION",
+        "fields": [
+          { "fieldPath": "userId", "order": "ASCENDING" },
+          { "fieldPath": "name", "order": "ASCENDING" }
+        ]
+      }
+    ],
+    "fieldOverrides": []
+  }

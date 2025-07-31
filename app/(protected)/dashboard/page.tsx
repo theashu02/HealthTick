@@ -1,4 +1,4 @@
-// import { Scheduler } from '@/components/dashboard/scheduler';
+import { Scheduler } from '@/app/components/dashboard/Schaduler';
 
 export default function DashboardPage() {
   return (
@@ -11,7 +11,7 @@ export default function DashboardPage() {
           Select a date to view and schedule your meetings.
         </p>
       </header>
-      {/* <Scheduler /> */}
+      <Scheduler />
     </div>
   );
 }
