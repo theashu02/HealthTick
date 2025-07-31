@@ -1,10 +1,11 @@
 'use client';
 import { useAuth } from '@/hook/user-auth';
 import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Loader2 } from 'lucide-react';
+import Welcome from '@/app/common/Welcome';
 
 const GoogleIcon = () => (
     <svg className="mr-2 h-4 w-4" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="google" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
@@ -15,18 +16,33 @@ const GoogleIcon = () => (
 export default function LoginPage() {
   const { user, loading, signInWithGoogle } = useAuth();
   const router = useRouter();
+  const [showWelcome, setShowWelcome] = useState(false);
 
   useEffect(() => {
-    if (!loading && user) {
-      router.replace('/dashboard');
+    if (!loading && user && !showWelcome) {
+      setShowWelcome(true);
     }
-  }, [user, loading, router]);
+  }, [user, loading, showWelcome]);
 
-  if (loading || user) {
+  const handleWelcomeComplete = () => {
+    router.replace('/dashboard');
+  };
+
+  if (loading) {
     return (
       <div className="flex h-screen w-full items-center justify-center bg-background">
         <Loader2 className="h-10 w-10 animate-spin text-primary" />
       </div>
+    );
+  }
+
+  if (user && showWelcome) {
+    return (
+      <Welcome 
+        userName={user?.displayName || "User"} 
+        onComplete={handleWelcomeComplete}
+        duration={3000}
+      />
     );
   }
 

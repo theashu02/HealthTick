@@ -3,7 +3,6 @@
 import { z } from 'zod';
 import { auth, db } from '@/config/firebase';
 import { collection, addDoc, getDocs, query, where, Timestamp, doc, deleteDoc, writeBatch } from 'firebase/firestore';
-// import { suggestContacts } from '@/ai/flows/suggest-contacts';
 import type { Meeting, Contact } from '@/lib/types';
 import { revalidatePath } from 'next/cache';
 import { headers } from 'next/headers';
@@ -18,7 +17,7 @@ const scheduleSchema = z.object({
 
 // Helper to get user from token
 async function getUserIdFromToken() {
-    const authorization = headers().get('Authorization');
+    const authorization = await headers().get('Authorization');
     if (!authorization) return null;
     const idToken = authorization.split('Bearer ')[1];
     if (!idToken) return null;
@@ -170,42 +169,3 @@ export async function deleteMeeting(meeting: Meeting, accessToken: string) {
         return { success: false, error: 'Failed to delete meeting.' };
     }
 }
-
-// export async function getContactSuggestions(partialInfo: string): Promise<Contact[]> {
-//     const userId = await getUserIdFromToken();
-//     if (!userId || partialInfo.length < 2) {
-//         return [];
-//     }
-    
-//     try {
-//         const contactsRef = collection(db, 'contacts');
-//         const q = query(contactsRef, where('userId', '==', userId));
-//         const snapshot = await getDocs(q);
-        
-//         if (snapshot.empty) {
-//             const batch = writeBatch(db);
-//             const dummyContacts = [
-//                 { name: 'Alice Johnson', phone: '123-456-7890' },
-//                 { name: 'Bob Williams', phone: '234-567-8901' },
-//                 { name: 'Charlie Brown', phone: '345-678-9012' },
-//                 { name: 'Diana Miller', phone: '456-789-0123' },
-//             ];
-//             dummyContacts.forEach(contact => {
-//                 const docRef = doc(collection(db, 'contacts'));
-//                 batch.set(docRef, { ...contact, userId });
-//             });
-//             await batch.commit();
-
-//             const newSnapshot = await getDocs(q);
-//             const userContacts = newSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as Contact));
-//             return await suggestContacts({ partialContactInfo: partialInfo, userContacts });
-//         }
-        
-//         const userContacts = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as Contact));
-//         return await suggestContacts({ partialContactInfo: partialInfo, userContacts });
-
-//     } catch (error) {
-//         console.error('Error fetching contact suggestions: ', error);
-//         return [];
-//     }
-// }

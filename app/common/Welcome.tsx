@@ -4,13 +4,13 @@ import { useEffect, useState } from "react"
 import { Card } from "@/components/ui/card"
 import { CheckCircle, Sparkles } from "lucide-react"
 
-interface AnimatedWelcomeProps {
+interface WelcomeProps {
   userName?: string
   onComplete?: () => void
   duration?: number
 }
 
-function AnimatedWelcome({ userName = "User", onComplete, duration = 3000 }: AnimatedWelcomeProps) {
+function Welcome({ userName = "User", onComplete, duration = 3000 }: WelcomeProps) {
   const [stage, setStage] = useState<"entering" | "showing" | "exiting" | "hidden">("entering")
 
   useEffect(() => {
@@ -141,54 +141,4 @@ function AnimatedWelcome({ userName = "User", onComplete, duration = 3000 }: Ani
   )
 }
 
-// Example usage component
-function Welcome() {
-  const [showWelcome, setShowWelcome] = useState(false)
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
-
-  const handleLogin = () => {
-    setIsLoggedIn(true)
-    setShowWelcome(true)
-  }
-
-  const handleWelcomeComplete = () => {
-    setShowWelcome(false)
-  }
-
-  return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-      {!isLoggedIn ? (
-        <Card className="p-8 max-w-sm w-full mx-4">
-          <div className="text-center space-y-4">
-            <h2 className="text-2xl font-bold">Demo Login</h2>
-            <p className="text-gray-600">Click to simulate login and see the welcome animation</p>
-            <button
-              onClick={handleLogin}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition-colors"
-            >
-              Login
-            </button>
-          </div>
-        </Card>
-      ) : (
-        <div className="text-center space-y-4">
-          <h1 className="text-3xl font-bold text-gray-800">Dashboard</h1>
-          <p className="text-gray-600">Welcome to your dashboard!</p>
-          <button
-            onClick={() => {
-              setIsLoggedIn(false)
-              setShowWelcome(false)
-            }}
-            className="bg-gray-600 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-md transition-colors"
-          >
-            Reset Demo
-          </button>
-        </div>
-      )}
-
-      {showWelcome && <AnimatedWelcome userName="John Doe" onComplete={handleWelcomeComplete} duration={3500} />}
-    </div>
-  )
-}
-
-export { Welcome }
+export default Welcome
