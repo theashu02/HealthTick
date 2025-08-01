@@ -170,7 +170,7 @@ const Sidebar: React.FC<SidebarProps> = ({ user, onSignOut }) => {
       </div> */}
       {/* Mobile Header with Menu Button */}
       <div className="lg:hidden flex fixed top-0 right-0 left-0 items-center justify-between p-4 bg-[#f4f4f4] dark:bg-black border-b border-border shadow-sm z-50">
-        <h1 className="text-xl font-bold text-foreground dark:text-gray-200">Coach Dashboard</h1>
+        <h1 className="text-xl font-bold text-foreground dark:text-gray-200">Coach Profile</h1>
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
             <Button variant="ghost" size="icon" className="lg:hidden">
@@ -182,7 +182,7 @@ const Sidebar: React.FC<SidebarProps> = ({ user, onSignOut }) => {
            */}
           <SheetContent side="left" className="w-64 p-0 flex flex-col">
             <SheetHeader className="p-6 border-b border-border">
-              <SheetTitle className="text-left">Coach Dashboard</SheetTitle>
+              <SheetTitle className="text-left">Coach Profile</SheetTitle>
             </SheetHeader>
             {/* 2. Make this container grow to fill the remaining space and allow scrolling
              */}
@@ -206,7 +206,7 @@ const Sidebar: React.FC<SidebarProps> = ({ user, onSignOut }) => {
           {/* Header */}
           <div className="p-6 border-b border-border dark:border-gray-500">
             <h1 className="text-xl font-bold text-foreground dark:text-gray-200">
-              Coach Dashboard
+              Coach Profile
             </h1>
           </div>
 
