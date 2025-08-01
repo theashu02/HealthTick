@@ -45,7 +45,7 @@
 //           className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
 //         />
 //       </div>
-      
+
 //       {searchTerm && !selectedClient && filteredClients.length > 0 && (
 //         <ul className="absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg max-h-48 overflow-y-auto">
 //           {filteredClients.map(client => (
@@ -67,10 +67,11 @@
 
 // export default ClientSearch;
 
-'use client';
-import React, { useMemo, useState } from 'react';
-import { Search } from 'lucide-react';
-import { Client } from '@/lib/types';
+"use client";
+import React, { useMemo, useState } from "react";
+import { Search } from "lucide-react";
+import { Client } from "@/lib/types";
+import { Button } from "@/components/ui/button";
 
 interface ClientSearchProps {
   clients: Client[];
@@ -107,7 +108,7 @@ const ClientSearch: React.FC<ClientSearchProps> = ({
     onClientSelect(client);
     setIsFocused(false);
   };
-  
+
   const filteredClients = useMemo(
     () =>
       clients.filter(
@@ -148,17 +149,30 @@ const ClientSearch: React.FC<ClientSearchProps> = ({
       </div>
 
       {isFocused && !selectedClient && filteredClients.length > 0 && (
-        <ul className="absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg max-h-48 overflow-y-auto">
-          {filteredClients.map((client) => (
+        <ul className="absolute z-10 w-full mt-1 bg-white dark:bg-stone-900 dark:text-gray-300 hover:text-gray-400 border border-gray-200 rounded-lg shadow-lg max-h-48 overflow-y-auto">
+          {/* {filteredClients.map((client) => (
             <li key={client.id}>
-              <button
-                type="button"
+              <Button
+                variant="ghost"
                 onClick={() => handleClientSelect(client)}
-                className="w-full text-left px-4 py-2 hover:bg-gray-100"
+                className="w-full text-left px-4 py-2 hover:bg-gray-100 hover:dark:bg-gray-550 hover:text-black"
               >
                 {client.name}{' '}
                 <span className="text-sm text-gray-500">- {client.phone}</span>
-              </button>
+              </Button>
+            </li>
+          ))} */}
+          {filteredClients.map((client) => (
+            <li key={client.id}>
+              <Button
+                variant="ghost"
+                onMouseDown={(e) => e.preventDefault()} // Prevents blur on input
+                onClick={() => handleClientSelect(client)}
+                className="w-full text-left px-4 py-2 hover:bg-gray-100 hover:dark:bg-gray-550 hover:text-black"
+              >
+                {client.name}{" "}
+                <span className="text-sm text-gray-500">- {client.phone}</span>
+              </Button>
             </li>
           ))}
         </ul>

@@ -253,7 +253,7 @@ const CalendarView: React.FC<CalendarViewProps> = ({ user, onSignOut }) => {
               {/* Page Header */}
               <div className="p-4 mt-16 md:mt-0">
                 <h1 className="text-2xl sm:text-2xl lg:text-3xl font-bold text-slate-900 dark:text-gray-200 mb-2">
-                  Schedule Management
+                  Manage Your Calls & Meetings
                 </h1>
                 <p className="text-sm sm:text-base text-slate-600 dark:text-gray-300">
                   Select a day from the calendar to view or manage your

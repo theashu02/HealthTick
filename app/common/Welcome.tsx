@@ -104,7 +104,7 @@ function Welcome({ userName = "User", onComplete, duration = 3000 }: WelcomeProp
         `}
         >
           <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            Welcome Back!
+            Welcome!
           </h1>
           <p className="text-xl text-gray-700 font-medium">Hello, {userName}</p>
           <p className="text-gray-500">{"You're successfully logged in"}</p>
