@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useEffect } from "react";
 import { useAuth } from "@/hook/useAuth";
-import Login from "../../(auth)/login/page";
+import Login from "../../(auth)/login/Login";
 import CalendarView from "@/app/components/common/CalendarView";
 import { Loader } from "@/app/common/Loder";
 import Welcome from "@/app/common/Welcome";

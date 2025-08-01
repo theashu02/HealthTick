@@ -1,7 +1,13 @@
 "use client";
 import React from "react";
 import { AlertTriangle } from "lucide-react";
-import { LoginProps } from "@/lib/types";
+// import { LoginProps } from "@/lib/types";
+
+export interface LoginProps {
+  onSignIn: () => void;
+  authError: string | null; 
+}
+
 
 const Login: React.FC<LoginProps> = ({ onSignIn, authError }) => {
   return (
