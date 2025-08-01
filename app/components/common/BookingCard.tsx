@@ -2,6 +2,7 @@ import React from 'react';
 import { format } from 'date-fns';
 import { Video, Repeat, Trash2 } from 'lucide-react';
 import { BookingCardProps } from '@/lib/types';
+import { Button } from '@/components/ui/button';
 
 const BookingCard: React.FC<BookingCardProps> = ({ booking, onDelete }) => {
   const isFollowUp = booking.type === 'follow-up';
@@ -24,13 +25,13 @@ const BookingCard: React.FC<BookingCardProps> = ({ booking, onDelete }) => {
           <p className={`text-xs capitalize ${textColor}`}>{booking.type} Call</p>
         </div>
       </div>
-      <button 
+      <Button 
         onClick={() => onDelete(booking.id)} 
         className="p-2 text-red-500 hover:text-red-800 hover:bg-red-300 rounded-full"
         aria-label="Delete booking"
       >
         <Trash2 size={18} />
-      </button>
+      </Button>
     </div>
   );
 };
