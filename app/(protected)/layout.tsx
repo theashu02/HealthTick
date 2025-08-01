@@ -1,6 +1,6 @@
 "use client";
 
-import { useAuth } from "@/hook/user-auth";
+import { useAuth } from "@/hook/useAuth";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { Loader2, Calendar, LogOut, User as UserIcon } from "lucide-react";

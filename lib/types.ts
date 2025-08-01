@@ -1,54 +1,42 @@
-import type { Timestamp } from 'firebase/firestore';
-
-interface Client {
+export interface Client {
   id: string;
   name: string;
   phone: string;
 }
 
-interface Booking {
+export interface Booking {
   id: string;
-  client_id: string;
-  client_name: string;
+  clientId: string;
+  clientName: string;
+  coachId: string;
   type: 'onboarding' | 'follow-up';
-  start_time?: Timestamp;
-  end_time?: Timestamp;
-  series_start_date?: string;
-  recurrence?: {
-    dayOfWeek: number;
-    time: string;
-  };
+  startTime: Date;
+  endTime: Date;
+  recurring?: boolean;
+  dayOfWeek?: number;
 }
 
-interface TimeSlot {
-  time: string;
-  booking?: Booking;
-  available: boolean;
+export interface BookingModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  slot: Date;
+  clients: Client[];
+  coachId: string;
+  existingBookings: Booking[];
+  user: any; // Firebase User type
 }
 
+export interface BookingCardProps {
+  booking: Booking;
+  onDelete: (id: string) => void;
+}
 
+export interface EmptySlotProps {
+  slot: Date;
+  onClick: () => void;
+}
 
-// export interface Meeting {
-//   id: string;
-//   userId: string;
-//   clientName: string;
-//   clientPhone: string;
-//   startTime: Timestamp;
-//   endTime: Timestamp;
-//   duration: 20 | 40;
-//   googleCalendarEventId?: string;
-// }
-
-// export interface Contact {
-//   id: string;
-//   userId: string;
-//   name: string;
-//   phone: string;
-// }
-
-// export interface UserProfile {
-//   uid: string;
-//   email: string | null;
-//   displayName: string | null;
-//   photoURL: string | null;
-// }
+export interface LoginProps {
+  onSignIn: () => void;
+  authError: string | null;
+}

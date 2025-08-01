@@ -1,0 +1,68 @@
+'use client'
+import React, { useMemo } from 'react';
+import { Search } from 'lucide-react';
+import { Client } from '@/lib/types';
+
+interface ClientSearchProps {
+  clients: Client[];
+  searchTerm: string;
+  selectedClient: Client | null;
+  onSearchChange: (term: string) => void;
+  onClientSelect: (client: Client) => void;
+}
+
+const ClientSearch: React.FC<ClientSearchProps> = ({
+  clients,
+  searchTerm,
+  selectedClient,
+  onSearchChange,
+  onClientSelect
+}) => {
+  const filteredClients = useMemo(() =>
+    clients.filter(c =>
+      c.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      c.phone.includes(searchTerm)
+    ), [clients, searchTerm]
+  );
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onSearchChange(e.target.value);
+  };
+
+  return (
+    <div className="relative">
+      <label htmlFor="client-search" className="block text-sm font-medium text-gray-700 mb-1">
+        Client
+      </label>
+      <div className="flex items-center">
+        <Search size={20} className="absolute left-3 text-gray-400" />
+        <input
+          id="client-search"
+          type="text"
+          value={searchTerm}
+          onChange={handleSearchChange}
+          placeholder="Search by name or phone..."
+          className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+        />
+      </div>
+      
+      {searchTerm && !selectedClient && filteredClients.length > 0 && (
+        <ul className="absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg max-h-48 overflow-y-auto">
+          {filteredClients.map(client => (
+            <li key={client.id}>
+              <button
+                type="button"
+                onClick={() => onClientSelect(client)}
+                className="w-full text-left px-4 py-2 hover:bg-gray-100"
+              >
+                {client.name} <span className="text-sm text-gray-500">- {client.phone}</span>
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+};
+
+export default ClientSearch;
