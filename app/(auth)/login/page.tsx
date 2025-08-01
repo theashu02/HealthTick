@@ -6,9 +6,9 @@ import { LoginProps } from "@/lib/types";
 const Login: React.FC<LoginProps> = ({ onSignIn, authError }) => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4">
-      <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-xl shadow-lg text-center">
-        <h1 className="text-3xl font-bold text-gray-900">HealthTick</h1>
-        <p className="text-gray-600">Your client scheduling partner.</p>
+      <div className="flex flex-col md:flex-col w-full max-w-md md:h-[320px] p-8 items-center justify-center space-y-6 bg-white dark:bg-black dark:border border-gray-800 rounded-xl shadow-lg text-center">
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-300">HealthTick</h1>
+        <p className="text-gray-600 dark:text-gray-300">Your client scheduling partner.</p>
 
         {authError && (
           <div className="p-4 mt-4 text-sm text-red-800 bg-red-100 rounded-lg flex items-start text-left">
@@ -47,12 +47,12 @@ const Login: React.FC<LoginProps> = ({ onSignIn, authError }) => {
         </button>
       </div>
 
-      <footer className="absolute bottom-0 bg-slate-100 border-t w-full py-4 mt-auto">
+      <footer className="absolute bottom-0 bg-slate-100 dark:bg-gray-900 border-t w-full py-4 mt-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm text-slate-600">
+          <p className="text-sm text-slate-600 dark:text-slate-100">
             Made by Ashu | © {new Date().getFullYear()} All Rights Reserved.
           </p>
-          <p className="text-xs text-slate-500 mt-2">
+          <p className="text-xs text-slate-500 dark:text-slate-200 mt-2">
             <strong>Disclaimer:</strong> This application uses a temporary
             testing database with Firebase login. All data is temporary.
           </p>

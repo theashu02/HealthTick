@@ -26,7 +26,7 @@ const BookingCard: React.FC<BookingCardProps> = ({ booking, onDelete }) => {
       </div>
       <button 
         onClick={() => onDelete(booking.id)} 
-        className="p-2 text-red-500 hover:text-red-700 hover:bg-red-100 rounded-full"
+        className="p-2 text-red-500 hover:text-red-800 hover:bg-red-300 rounded-full"
         aria-label="Delete booking"
       >
         <Trash2 size={18} />

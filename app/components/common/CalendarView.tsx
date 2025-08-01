@@ -244,7 +244,7 @@ const CalendarView: React.FC<CalendarViewProps> = ({ user, onSignOut }) => {
 
   return (
     <>
-      <div className="flex h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+      <div className="flex h-screen bg-[#f4f4f4] dark:bg-black dark:border-2">
         <Sidebar user={user} onSignOut={onSignOut} />
 
         <main className="flex-1 flex flex-col min-w-0 overflow-hidden">
@@ -252,10 +252,10 @@ const CalendarView: React.FC<CalendarViewProps> = ({ user, onSignOut }) => {
             <div className="max-w-screen mx-auto h-full">
               {/* Page Header */}
               <div className="p-4 mt-16 md:mt-0">
-                <h1 className="text-2xl sm:text-2xl lg:text-3xl font-bold text-slate-900 mb-2">
+                <h1 className="text-2xl sm:text-2xl lg:text-3xl font-bold text-slate-900 dark:text-gray-200 mb-2">
                   Schedule Management
                 </h1>
-                <p className="text-sm sm:text-base text-slate-600">
+                <p className="text-sm sm:text-base text-slate-600 dark:text-gray-300">
                   Select a day from the calendar to view or manage your
                   schedule.
                 </p>
@@ -265,22 +265,22 @@ const CalendarView: React.FC<CalendarViewProps> = ({ user, onSignOut }) => {
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-8 h-[calc(100vh-200px)] lg:h-[calc(100vh-240px)] p-6 md:p-8">
                 {/* Left Column: Calendar */}
                 <div className="lg:col-span-1">
-                  <div className="bg-white rounded-lg border shadow-sm p-4 lg:sticky lg:top-8">
+                  <div className="bg-[#f4f4f4] dark:bg-black/50 rounded-lg border-2 shadow-sm p-4 lg:sticky lg:top-8 dark:border-2">
                     <Calendar
                       mode="single"
                       selected={selectedDate}
                       onSelect={(date) => date && setSelectedDate(date)}
-                      className="rounded-md w-full"
+                      className="rounded-md w-full dark:border-2 dark:border-gray-900 bg-[#f4f4f4]"
                     />
                   </div>
                 </div>
 
                 {/* Right Column: Time Slots for Selected Day */}
                 <div className="lg:col-span-2">
-                  <div className="bg-white rounded-lg border shadow-sm flex flex-col h-full">
+                  <div className="bg-[#f4f4f4] dark:bg-black/50 rounded-lg border shadow-sm flex flex-col h-full dark:border-4">
                     {/* Header */}
-                    <div className="p-4 sm:p-6 border-b border-slate-200">
-                      <h2 className="text-xl font-semibold text-slate-800">
+                    <div className="p-4 sm:p-6 border-b border-slate-200 dark:border-slate-700">
+                      <h2 className="text-xl font-semibold text-slate-800 dark:text-gray-300">
                         Schedule for{" "}
                         {format(selectedDate, "EEEE, MMMM d, yyyy")}
                       </h2>

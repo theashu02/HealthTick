@@ -499,16 +499,16 @@ const handleClientSelection = (client: Client | null) => {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-lg p-0">
-        <DialogHeader className="p-4 border-b border-gray-200">
+        <DialogHeader className="p-4 border-b border-gray-200 dark:border-b dark:border-gray-800">
           <DialogTitle className="text-lg font-semibold">
             Book a Call
           </DialogTitle>
         </DialogHeader>
 
         <form onSubmit={handleSubmit} className="p-6 space-y-6">
-          <div className="p-3 bg-blue-50 border border-blue-200 rounded-lg text-blue-800">
+          <div className="p-3 bg-blue-50 dark:bg-black/30 dark:border-2 border border-blue-200 dark:border-gray-900 dark:text-gray-200 rounded-lg text-blue-800">
             Booking for:{" "}
-            <span className="font-semibold">
+            <span className="font-semibold dark:text-gray-300">
               {format(slot, "EEEE, MMMM d, yyyy")} at {format(slot, "h:mm a")}
             </span>
           </div>
@@ -518,7 +518,7 @@ const handleClientSelection = (client: Client | null) => {
               <button
                 type="button"
                 onClick={() => setMode("search")}
-                className={`flex-1 py-2 text-sm font-medium flex items-center justify-center gap-2 ${
+                className={`flex-1 py-2 text-sm font-medium flex items-center justify-center dark:text-gray-300 gap-2 ${
                   mode === "search"
                     ? "text-blue-600 border-b-2 border-blue-600"
                     : "text-gray-500 hover:bg-gray-50"
@@ -529,7 +529,7 @@ const handleClientSelection = (client: Client | null) => {
               <button
                 type="button"
                 onClick={() => setMode("add")}
-                className={`flex-1 py-2 text-sm font-medium flex items-center justify-center gap-2 ${
+                className={`flex-1 py-2 text-sm font-medium flex items-center justify-center gap-2 dark:text-gray-300  ${
                   mode === "add"
                     ? "text-blue-600 border-b-2 border-blue-600"
                     : "text-gray-500 hover:bg-gray-50"
@@ -556,7 +556,7 @@ const handleClientSelection = (client: Client | null) => {
                 <div>
                   <Label
                     htmlFor="new-client-name"
-                    className="block text-sm font-medium text-gray-700 mb-1"
+                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
                   >
                     New Client Name
                   </Label>
@@ -572,7 +572,7 @@ const handleClientSelection = (client: Client | null) => {
                 <div>
                   <Label
                     htmlFor="new-client-phone"
-                    className="block text-sm font-medium text-gray-700 mb-1"
+                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
                   >
                     New Client Phone
                   </Label>
@@ -590,7 +590,7 @@ const handleClientSelection = (client: Client | null) => {
           </div>
 
           <div>
-            <Label className="block text-sm font-medium text-gray-700 mb-2">
+            <Label className="block text-sm font-medium text-gray-700 mb-2 dark:text-gray-300">
               Call Type
             </Label>
             <div className="grid grid-cols-2 gap-4">

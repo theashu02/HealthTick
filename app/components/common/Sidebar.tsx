@@ -49,7 +49,7 @@ const SidebarContent: React.FC<{
         <DropdownMenuTrigger asChild>
           <Button
             variant="ghost"
-            className="w-full justify-start gap-3 h-auto p-3 font-normal hover:bg-accent hover:text-accent-foreground transition-colors"
+            className="w-full hover:bg-blue-100 justify-start gap-3 h-auto p-3 font-normal hover:text-accent-foreground transition-colors"
           >
             <Avatar className="h-8 w-8">
               <AvatarImage
@@ -96,7 +96,7 @@ const SidebarContent: React.FC<{
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
-      <p className="text-sm text-slate-600 absolute bottom-5">
+      <p className="text-sm text-slate-600 dark:text-gray-400 absolute bottom-5">
         Made by Ashu | © 2025 All Rights Reserved.
       </p>
     </div>
@@ -169,8 +169,8 @@ const Sidebar: React.FC<SidebarProps> = ({ user, onSignOut }) => {
         </Sheet>
       </div> */}
       {/* Mobile Header with Menu Button */}
-      <div className="lg:hidden flex fixed top-0 right-0 left-0 items-center justify-between p-4 bg-[#f4f4f4] border-b border-border shadow-sm z-50">
-        <h1 className="text-xl font-bold text-foreground">Coach Dashboard</h1>
+      <div className="lg:hidden flex fixed top-0 right-0 left-0 items-center justify-between p-4 bg-[#f4f4f4] dark:bg-black border-b border-border shadow-sm z-50">
+        <h1 className="text-xl font-bold text-foreground dark:text-gray-200">Coach Dashboard</h1>
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
             <Button variant="ghost" size="icon" className="lg:hidden">
@@ -200,12 +200,12 @@ const Sidebar: React.FC<SidebarProps> = ({ user, onSignOut }) => {
       {/* Desktop Sidebar */}
       <div className="hidden lg:flex relative">
         <div
-          className="flex flex-col h-full bg-white border-r border-border shadow-sm transition-all duration-200 ease-in-out"
+          className="flex flex-col h-full bg-[#f4f4f4] dark:bg-black border-r border-border shadow-sm transition-all duration-200 ease-in-out"
           style={{ width: `${sidebarWidth}px` }}
         >
           {/* Header */}
-          <div className="p-6 border-b border-border">
-            <h1 className="text-xl font-bold text-foreground">
+          <div className="p-6 border-b border-border dark:border-gray-500">
+            <h1 className="text-xl font-bold text-foreground dark:text-gray-200">
               Coach Dashboard
             </h1>
           </div>
