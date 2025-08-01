@@ -55,7 +55,7 @@ const Login: React.FC<LoginProps> = ({ onSignIn, authError }) => {
         </button>
       </div>
 
-      <footer className="absolute bottom-0 bg-slate-100 dark:bg-gray-900 border-t w-full py-4 mt-auto">
+      <footer className="font-consolas absolute bottom-0 bg-slate-100 dark:bg-gray-900 border-t w-full py-4 mt-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-sm text-slate-600 dark:text-slate-100">
             Made by Ashu | © {new Date().getFullYear()} All Rights Reserved.

@@ -2,33 +2,10 @@
 import React, { useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
-import {
-  Home,
-  Users,
-  Calendar,
-  Settings,
-  BarChart3,
-  MessageSquare,
-  LogOut,
-  Menu,
-  GripVertical,
-} from "lucide-react";
+import { LogOut, Menu, GripVertical } from "lucide-react";
 
 interface SidebarProps {
   user: any;
@@ -96,7 +73,7 @@ const SidebarContent: React.FC<{
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
-      <p className="text-sm text-slate-600 dark:text-gray-400 absolute bottom-5">
+      <p className="font-consolas text-sm text-slate-600 dark:text-gray-400 absolute bottom-5">
         Made by Ashu | © 2025 All Rights Reserved.
       </p>
     </div>
@@ -145,30 +122,6 @@ const Sidebar: React.FC<SidebarProps> = ({ user, onSignOut }) => {
   return (
     <>
       {/* Mobile Header with Menu Button */}
-      {/* <div className="lg:hidden flex items-center justify-between p-4 bg-white border-b border-border shadow-sm">
-        <h1 className="text-xl font-bold text-foreground">Coach Dashboard</h1>
-        <Sheet open={isOpen} onOpenChange={setIsOpen}>
-          <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" className="lg:hidden">
-              <Menu className="h-5 w-5" />
-              <span className="sr-only">Toggle menu</span>
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="left" className="w-64 p-0">
-            <SheetHeader className="p-6 border-b border-border">
-              <SheetTitle className="text-left">Coach Dashboard</SheetTitle>
-            </SheetHeader>
-            <div className="flex flex-col h-[calc(100vh-80px)]">
-              <SidebarContent
-                user={user}
-                onSignOut={onSignOut}
-                onItemClick={() => setIsOpen(false)}
-              />
-            </div>
-          </SheetContent>
-        </Sheet>
-      </div> */}
-      {/* Mobile Header with Menu Button */}
       <div className="lg:hidden flex fixed top-0 right-0 left-0 items-center justify-between p-4 bg-[#f4f4f4] dark:bg-black border-b border-border shadow-sm z-50">
         <h1 className="text-xl font-bold text-foreground dark:text-gray-200">Coach Profile</h1>
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -178,14 +131,11 @@ const Sidebar: React.FC<SidebarProps> = ({ user, onSignOut }) => {
               <span className="sr-only">Toggle menu</span>
             </Button>
           </SheetTrigger>
-          {/* 1. Make the SheetContent a vertical flex container
-           */}
+
           <SheetContent side="left" className="w-64 p-0 flex flex-col">
             <SheetHeader className="p-6 border-b border-border">
               <SheetTitle className="text-left">Coach Profile</SheetTitle>
             </SheetHeader>
-            {/* 2. Make this container grow to fill the remaining space and allow scrolling
-             */}
             <div className="flex-1 overflow-y-auto">
               <SidebarContent
                 user={user}

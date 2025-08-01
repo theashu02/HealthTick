@@ -8,36 +8,20 @@ import { BookingModalProps, Client, Booking } from "@/lib/types";
 import { CALENDAR_CONFIG } from "@/lib/constants";
 import ClientSearch from "@/app/components/common/ClientSearch";
 import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner"
 
-const BookingModal: React.FC<BookingModalProps> = ({
-  isOpen,
-  onClose,
-  slot,
-  clients,
-  coachId,
-  existingBookings,
-  user,
-}) => {
+const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, slot, clients, coachId, existingBookings, user }) => {
   const [mode, setMode] = useState<"search" | "add">("search");
   const [selectedClient, setSelectedClient] = useState<Client | null>(null);
-  const [callType, setCallType] = useState<"onboarding" | "follow-up">(
-    "onboarding"
-  );
+  const [callType, setCallType] = useState<"onboarding" | "follow-up">("onboarding");
   const [searchTerm, setSearchTerm] = useState("");
   const [newClientName, setNewClientName] = useState("");
   const [newClientPhone, setNewClientPhone] = useState("");
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  // const [selectedClient, setSelectedClient] = useState<Client | null>(null);
 
   const resetForm = useCallback(() => {
     setMode("search");

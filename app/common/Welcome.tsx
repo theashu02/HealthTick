@@ -129,7 +129,6 @@ function Welcome({ userName = "User", onComplete, duration = 3000 }: WelcomeProp
         </div>
       </Card>
 
-      {/* Radial gradient overlay for exit effect */}
       <div
         className={`
         absolute inset-0 bg-gradient-radial from-transparent via-white/20 to-white
