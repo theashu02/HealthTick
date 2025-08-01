@@ -25,9 +25,11 @@ const BookingCard: React.FC<BookingCardProps> = ({ booking, onDelete }) => {
           <p className={`text-xs capitalize ${textColor}`}>{booking.type} Call</p>
         </div>
       </div>
+
       <Button 
         onClick={() => onDelete(booking.id)} 
-        className="p-2 text-red-500 hover:text-red-800 hover:bg-red-300 rounded-full"
+        variant="outline"
+        className="p-2 text-red-500 hover:text-red-800 hover:bg-red-300 rounded-full dark:hover:bg-amber-100"
         aria-label="Delete booking"
       >
         <Trash2 size={18} />

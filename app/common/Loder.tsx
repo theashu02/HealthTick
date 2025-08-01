@@ -14,11 +14,7 @@ export interface LoaderProps {
   className?: string;
 }
 
-const DotsLoader = ({
-  size = "md",
-  color = "primary",
-  className,
-}: LoaderProps) => {
+const DotsLoader = ({ size = "md", color = "primary", className }: LoaderProps) => {
   const dotSize = {
     sm: "h-1 w-1",
     md: "h-2 w-2",
