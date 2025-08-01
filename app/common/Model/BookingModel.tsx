@@ -309,6 +309,7 @@ const BookingModal: React.FC<BookingModalProps> = ({
   const [newClientPhone, setNewClientPhone] = useState("");
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  // const [selectedClient, setSelectedClient] = useState<Client | null>(null);
 
   const resetForm = useCallback(() => {
     setMode("search");
@@ -396,6 +397,11 @@ const BookingModal: React.FC<BookingModalProps> = ({
       );
     }
   };
+
+
+const handleClientSelection = (client: Client | null) => {
+  setSelectedClient(client);
+};
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -537,9 +543,11 @@ const BookingModal: React.FC<BookingModalProps> = ({
               <ClientSearch
                 clients={clients}
                 searchTerm={searchTerm}
-                selectedClient={selectedClient}
+                // selectedClient={selectedClient}
                 onSearchChange={setSearchTerm}
-                onClientSelect={handleClientSelect}
+                // onClientSelect={handleClientSelect}
+                selectedClient={selectedClient}
+                onClientSelect={handleClientSelection}
               />
             )}
 
