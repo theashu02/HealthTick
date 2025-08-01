@@ -1,20 +1,22 @@
 "use client";
 import React from "react";
 import { AlertTriangle } from "lucide-react";
-// import { LoginProps } from "@/lib/types";
 
 export interface LoginProps {
   onSignIn: () => void;
-  authError: string | null; 
+  authError: string | null;
 }
-
 
 const Login: React.FC<LoginProps> = ({ onSignIn, authError }) => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4">
       <div className="flex flex-col md:flex-col w-full max-w-md md:h-[320px] p-8 items-center justify-center space-y-6 bg-white dark:bg-black dark:border border-gray-800 rounded-xl shadow-lg text-center">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-300">HealthTick</h1>
-        <p className="text-gray-600 dark:text-gray-300">Your client scheduling partner.</p>
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-300">
+          HealthTick
+        </h1>
+        <p className="text-gray-600 dark:text-gray-300">
+          Your Smart Partner in Client Scheduling.
+        </p>
 
         {authError && (
           <div className="p-4 mt-4 text-sm text-red-800 bg-red-100 rounded-lg flex items-start text-left">

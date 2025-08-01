@@ -5,24 +5,9 @@ import Login from "../../(auth)/login/Login";
 import CalendarView from "@/app/components/common/CalendarView";
 import { Loader } from "@/app/common/Loder";
 import Welcome from "@/app/common/Welcome";
+import { toast } from "sonner";
 
 const AuthWrapper: React.FC = () => {
-  // const { user, loading, authError, handleGoogleSignIn, handleSignOut } =
-  //   useAuth();
-
-  // if (loading) {
-  //   return <Loader />;
-  // }
-
-  // return (
-  //   <div className="min-h-screen bg-gray-50 font-sans text-gray-800">
-  //     {user ? (
-  //       <CalendarView user={user} onSignOut={handleSignOut} />
-  //     ) : (
-  //       <Login onSignIn={handleGoogleSignIn} authError={authError} />
-  //     )}
-  //   </div>
-  // );
 
   const { user, loading, authError, handleGoogleSignIn, handleSignOut } = useAuth();
   const [showWelcome, setShowWelcome] = useState(false);
@@ -40,6 +25,7 @@ const AuthWrapper: React.FC = () => {
 
   const handleWelcomeComplete = () => {
     setShowWelcome(false);
+    toast("Logged in Successfully.")
   };
 
   if (loading) {

@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
+import { toast } from "sonner"
 
 const BookingModal: React.FC<BookingModalProps> = ({
   isOpen,
@@ -71,9 +72,7 @@ const BookingModal: React.FC<BookingModalProps> = ({
     const accessToken = (auth.currentUser as any)?.stsTokenManager?.accessToken;
     if (!accessToken) {
       console.error("No access token available for Google Calendar API.");
-      alert(
-        "Could not add to Google Calendar: Not signed in or permissions missing."
-      );
+      toast("Could not add to Google Calendar: Not signed in or permissions missing.")
       return;
     }
 
@@ -112,17 +111,13 @@ const BookingModal: React.FC<BookingModalProps> = ({
       const data = await response.json();
       if (data.error) {
         console.error("Google Calendar API Error:", data.error);
-        alert(
-          `Booking saved, but failed to add to Google Calendar. Error: ${data.error.message}`
-        );
+        toast(`Booking saved, but failed to add to Google Calendar. Error: ${data.error.message}`)
       } else {
         console.log("Event created: %s", data.htmlLink);
       }
     } catch (error) {
       console.error("Error creating Google Calendar event:", error);
-      alert(
-        `Booking saved, but an error occurred while adding to Google Calendar.`
-      );
+      toast("Booking saved, but an error occurred while adding to Google Calendar.")
     }
   };
 
@@ -136,6 +131,7 @@ const BookingModal: React.FC<BookingModalProps> = ({
     if (mode === "add") {
       if (!newClientName || !newClientPhone) {
         setError("Please provide a name and phone number for the new client.");
+        toast("Please provide a name and phone number for the new client.")
         setIsSubmitting(false);
         return;
       }
@@ -152,6 +148,7 @@ const BookingModal: React.FC<BookingModalProps> = ({
       } catch (err) {
         console.error("Error adding new client:", err);
         setError("Failed to add new client. Please try again.");
+        toast("Failed to add new client. Please try again.")
         setIsSubmitting(false);
         return;
       }
@@ -178,6 +175,7 @@ const BookingModal: React.FC<BookingModalProps> = ({
 
     if (overlap) {
       setError("This time slot overlaps with an existing booking.");
+      toast("This time slot overlaps with an existing booking.")
       setIsSubmitting(false);
       return;
     }
@@ -207,8 +205,9 @@ const BookingModal: React.FC<BookingModalProps> = ({
       //   description: `Client: ${clientToBook.name}\nPhone: ${clientToBook.phone}\nCall Type: ${callType}`,
       //   isRecurring: callType === "follow-up",
       // });
-
+  
       onClose();
+      toast("Great! The meeting has been scheduled perfectly.")
     } catch (err) {
       console.error("Error creating booking:", err);
       setError("Failed to create booking. Please try again.");
