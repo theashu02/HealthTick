@@ -51,8 +51,7 @@ const CalendarView: React.FC<CalendarViewProps> = ({ user, onSignOut }) => {
 
   return (
     <div className="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto">
-      <Header user={user} onSignOut={onSignOut} />
-
+        <Header user={user} onSignOut={onSignOut} />
       <div className="bg-white p-6 rounded-xl shadow-lg">
         <div className="flex justify-between items-center mb-6">
           <button 
