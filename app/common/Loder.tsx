@@ -27,13 +27,13 @@ const DotsLoader = ({
   };
 
   return (
-    <div className={cn("flex space-x-1", className)}>
+    <div className={`cn("flex space-x-1", className) w-screen h-screen flex items-center justify-center space-x-3`}>
       {[0, 1, 2].map((i) => (
         <div
           key={i}
           className={cn(
-            "rounded-full animate-bounce",
-            dotSize[size],
+            "rounded-full animate-bounce space-x-4",
+            dotSize["xl"],
             color === "primary" && "bg-primary",
             color === "secondary" && "bg-secondary",
             color === "muted" && "bg-muted-foreground"
