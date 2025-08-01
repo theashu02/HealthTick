@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <AuthWrapper />
-      <div className="absolute top-5 right-5">
+      <div className="absolute top-4 right-16 z-50 md:top-5 md:right-5">
         <ModeToggle />
       </div>
     </>
